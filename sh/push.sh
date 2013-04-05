@@ -1,4 +1,4 @@
 #!/bin/sh
-git add *.cc *.h *.in
+git add *.cc *.h *.in *.sh
 git commit -m ".."
-echo "aaaaa" | git push origin master
+git push $1 master
