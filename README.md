@@ -1,4 +1,3 @@
-wbia
-====
-
-wbia course hw 2： recommander system
+sh/  some shell scripts
+.vimrc vimsettings
+.bash_aliases  shell alias
