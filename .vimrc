@@ -15,11 +15,11 @@
 	" CTRL-C and CTRL-Insert are Copy
 	vnoremap <C-C> "+y
 "	vnoremap <C-Insert> "+y
-	vmap <C-c> "yy
-	vmap <C-x> "yd
-	nmap <C-v> "yp 
-	nmap <C-V> "+p 
-	nmap <C-a> ggvG$
+"	vmap <C-c> "yy
+"	vmap <C-x> "yd
+"	nmap <C-v> "yp 
+"	nmap <C-V> "+p 
+"	nmap <C-a> ggvG$
 "	noremap <C-Z> u
 "	inoremap <C-Z> <C-O>u
 "	noremap <C-Y> <C-R>
