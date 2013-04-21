@@ -29,6 +29,7 @@ git clone https://github.com/stevenberge/java.git
 
 cd ~
 mkdir git
+cd git
 svn checkout http://wmreader.googlecode.com/svn/trunk/ wmreader-read-only
 git clone https://github.com/pakerfeldt/android-viewflow.git
 git clone https://code.google.com/p/apps-for-android/
