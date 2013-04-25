@@ -14,25 +14,22 @@ sudo ln -s /usr/share/pkgconfig/ pc-share
 cd ~
 mkdir code
 cd code
-mkdir acm c git gnu java py 
-cd acm
+mkdir  c git gnu java py 
 git clone https://github.com/stevenberge/alg.git
+mv alg acm
 
 cd ~ 
 mkdir ..git
 cd ..git
-mkdir lin www java
-cd lin
 git clone https://github.com/stevenberge/lin.git
-cp .* ~/ -r
-cd ../www
+cp lin/.* ~/ -r
 git clone https://github.com/stevenberge/www.git
-cp .* ~/www/ -r
-cd ../java 
+cp www/.* ~/www/ -r
 git clone https://github.com/stevenberge/java.git
 
 cd ~
 mkdir git
+cd git
 svn checkout http://wmreader.googlecode.com/svn/trunk/ wmreader-read-only
 git clone https://github.com/pakerfeldt/android-viewflow.git
 git clone https://code.google.com/p/apps-for-android/
