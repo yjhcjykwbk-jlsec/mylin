@@ -106,10 +106,10 @@
 	"--------------------------------------------------------------------------------
 	" ДњТыелЕў
 	"--------------------------------------------------------------------------------
-	"set foldmarker={,}
-	"set foldmethod=marker
-	set foldmethod=syntax
-	set foldlevel=100       " Don't autofold anything (but I can still fold manually)
+	set foldmarker={,}
+	set foldmethod=marker
+	"set foldmethod=syntax
+	"set foldlevel=100       " Don't autofold anything (but I can still fold manually)
 	"set foldopen-=search   " don't open folds when you search into them
 	"set foldopen-=undo     " don't open folds when you undo stuff
 	"set foldcolumn=4
