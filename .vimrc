@@ -107,8 +107,12 @@
 	" 代码折叠
 	"--------------------------------------------------------------------------------
 	set foldmarker={,}
-	set foldmethod=marker
-	"set foldmethod=syntax
+"	set foldmethod=marker
+	"快速打开折叠: hl/l/h
+"	set foldopen=all 
+"	set foldclose=all "自动关闭折叠
+	set foldlevel=0
+	set foldmethod=syntax
 	"set foldlevel=100       " Don't autofold anything (but I can still fold manually)
 	"set foldopen-=search   " don't open folds when you search into them
 	"set foldopen-=undo     " don't open folds when you undo stuff
@@ -289,3 +293,5 @@ set nobackup
 set nowritebackup
 " 显示行号
 set number
+set tags=tags; 
+set autochdir 
