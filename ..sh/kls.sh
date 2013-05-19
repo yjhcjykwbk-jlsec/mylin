@@ -1,4 +1,5 @@
 #~/bin/bash
-kls=$(ps -ef |grep $1|awk '{print $2}')
-echo $kls
-kill -9 $kls
+threads=`ps -ef |grep "$1"|awk '{print $2}'`
+echo "will kill $threads"
+echo "begin kill"
+kill -9 $threads
