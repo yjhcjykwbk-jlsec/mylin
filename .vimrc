@@ -1,4 +1,5 @@
 "	http://www.cnblogs.com/magic-chen/archive/2012/03/21/2410313.html
+"	http://blog.csdn.net/wooin/article/details/1858917
 	"===============================================================================
 	"        Filename: vimrc
 	"          Author: Wu Yin(吴垠)
@@ -91,10 +92,12 @@
 	set ruler           " 在编辑过程中，在右下角显示光标位置的状态行
 
 	"--------------------------------------------------------------------------------
-	" 编程相关的设置
+	" 编程相关的设置 自动补全等
 	"--------------------------------------------------------------------------------
 	set completeopt=longest,menu    " 关掉智能补全时的预览窗口
-	"filetype plugin indent on       " 加了这句才可以用智能补全
+	filetype plugin indent on       " 加了这句才可以用智能补全
+"	随便找一个有成员变量的对象, 比如"parmp", 进入Insert模式, 将光标放在"->"后面, 
+"	然后按下"Ctrl+X Ctrl+O", 此时会弹出一个下列菜单, 显示所有匹配的标签, 如下图:
 "	:set tags=/home/nfs/microwindows/src/tags
 	syn on              " 打开语法高亮
 	set showmatch       " 设置匹配模式，类似当输入一个左括号时会匹配相应的那个右括号
@@ -108,7 +111,9 @@
 	"--------------------------------------------------------------------------------
 	set foldmarker={,}
 "	set foldmethod=marker
-	"快速打开折叠: hl/l/h
+	"快速打开折叠:zo hl/l/h
+	"循环折叠zM
+	"循环展开zr
 "	set foldopen=all 
 "	set foldclose=all "自动关闭折叠
 	set foldlevel=0
@@ -117,6 +122,7 @@
 	"set foldopen-=search   " don't open folds when you search into them
 	"set foldopen-=undo     " don't open folds when you undo stuff
 	"set foldcolumn=4
+	nmap hl <esc>:foldopen<cr>
 
 
 	"--------------------------------------------------------------------------------
@@ -149,7 +155,7 @@
 	"--------------------------------------------------------------------------------
 	let Tlist_Show_One_File=1
 	let Tlist_Exit_OnlyWindow = 1
-	let Tlist_Use_Right_Window=1
+"	let Tlist_Use_Right_Window=1
 	"let Tlist_Use_SingleClick= 1 " 缺省情况下，在双击一个tag时，才会跳到该tag定义的位置
 	let Tlist_Auto_Open=1 "在启动VIM后，自动打开taglist窗口
 	let Tlist_Process_File_Always=1 "taglist始终解析文件中的tag，不管taglist窗口有没有打开
@@ -295,3 +301,6 @@ set nowritebackup
 set number
 set tags=tags; 
 set autochdir 
+"matchit 在html标签里跳转
+runtime macros/matchit.vim 
+filetype plugin on 
