@@ -64,12 +64,12 @@ Allow from 127.0.0.0/255.0.0.0 ::1/128
 <VirtualHost *:80>
 ServerAdmin webmaster@localhost
 ServerName localhost1
-DocumentRoot /host/www-gbk/blog
+DocumentRoot /host/www-gbk/blog-gbk
 <Directory />
 Options FollowSymLinks
 AllowOverride None
 </Directory>
-<Directory /host/www-gbk/blog>
+<Directory /host/www-gbk/blog-gbk>
 Options Indexes FollowSymLinks MultiViews
 AllowOverride None
 Order deny,allow

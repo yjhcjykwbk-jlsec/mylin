@@ -58,18 +58,17 @@ map <space><pageup> <ESC>:qa!<return>
 map <space><up> <ESC>:!gnome-terminal &<cr><return>
 " }
 "===============================================================================
-set fileencodings=utf-8,gbk
 set tabstop=2       " 设置tab键的宽度
 set backspace=2     " 设置退格键可用
 set nu!             " 显示行号
 "set vbt_vb=        " vim进行编辑时，如果命令错误，会发出一个响声，该设置去掉响声
-"set wrap           " 自动换行
-set nowrap         " 不自动换行
+set wrap           " 自动换行
+"set nowrap         " 不自动换行
 set linebreak       " 整词换行
 set whichwrap=b,s,<,>,[,]       " 光标从行首和行末时可以跳到另一行去
 set list                  " 显示制表符
 set listchars=tab:\|\ ,		" 显示Tab符，并且使用一高亮竖线代替
-set cursorline          "显示当前行
+"set cursorline          "显示当前行
 "set listchars = tab:>-,trail:- " 将制表符显示为'>---',将行尾空格显示为'-'
 "set listchars=tab:./ ,trail:.   " 将制表符显示为'.   '
 set autochdir                   " 自动设置目录为正在编辑的文件所在的目录
@@ -90,7 +89,7 @@ set gdefault        " 替换时所有的行内匹配都被替换，而不是只有第一个
 " 编程相关的设置 自动补全等
 "--------------------------------------------------------------
 set completeopt=longest,menu    " 关掉智能补全时的预览窗口
-filetype plugin indent on       " 加了这句才可以用智能补全
+"filetype plugin indent on       " 加了这句才可以用智能补全
 "	随便找一个有成员变量的对象, 比如"parmp", 进入Insert模式, 将光标放在"->"后面, 
 "	然后按下"Ctrl+X Ctrl+O", 此时会弹出一个下列菜单, 显示所有匹配的标签, 如下图:
 "	:set tags=/home/nfs/microwindows/src/tags
@@ -105,19 +104,20 @@ set noautoindent      " 自动对齐
 " 代码折叠
 "--------------------------------------------------------------
 set foldmarker={,}
-"	set foldmethod=marker 
+set foldmethod=marker 
 "快速打开折叠:zo hl/l/h
 "循环折叠zM
 "循环展开zr
 "	set foldopen=all 
 "	set foldclose=all "自动关闭折叠
 set foldlevel=0
-set foldmethod=syntax
+"set foldmethod=syntax
 "set foldlevel=100       " Don't autofold anything (but I can still fold manually)
 "set foldopen-=search   " don't open folds when you search into them
 "set foldopen-=undo     " don't open folds when you undo stuff
 "set foldcolumn=4
-nmap hl <esc>:foldopen<cr>
+"nmap hl <esc>:foldopen<cr>
+"nmap lh <esc>:foldclose<cr>
 
 
 "--------------------------------------------------------------
@@ -224,6 +224,7 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 " CVim :help csupport
 "--------------------------------------------------------------
 let g:C_Comments = "no"         " 用C++的注释风格
+
 let g:C_BraceOnNewLine = "no"   " '{'是否独自一行
 let g:C_AuthorName = "Wu Yin"
 let g:C_Project="F9"
@@ -287,8 +288,8 @@ set nobackup
 set nowritebackup
 syntax enable                " 打开语法高亮
 syntax on                    " 开启文件类型侦测
-filetype indent on           " 针对不同的文件类型采用不同的缩进格式
-filetype plugin on           " 针对不同的文件类型加载对应的插件
+"filetype indent on           " 针对不同的文件类型采用不同的缩进格式
+"filetype plugin on           " 针对不同的文件类型加载对应的插件
 "filetype plugin indent on    "智能补全
 " 一直启动鼠标
 set mouse=a
@@ -307,7 +308,7 @@ set tags=tags;
 set autochdir 
 "matchit 在html标签里跳转
 runtime macros/matchit.vim 
-"#filetype plugin on 
+filetype plugin on 
 "--------------------------------------------------------------
 " mark书签配置
 
@@ -346,12 +347,39 @@ set ruler           " 在编辑过程中，在右下角显示光标位置的状态行
 "--------------------------------------------------------------
 " 主题设置
 "--------------------------------------------------------------
-colorscheme darkZ "adaryn
+colorscheme adaryn "darkZ adaryn
 
-
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 "--------------------------------------------------------------
 "命令提示
 "--------------------------------------------------------------
+":map 普通，可视模式及操作符等待模式
+":vmap 可视模式
+":omap 操作符等待模式
+":map! 插入和命令行模式
+":imap 插入模式
+":cmap 命令行模式
+"#: cscope -Rbkq<回车>
+"2.3.1.2 R 表示把所有子目录里的文件也建立索引
+"2.3.1.3 b 表示cscope不启动自带的用户界面，而仅仅建立符号数据库
+"2.3.1.4 q 生成cscope.in.out和cscope.po.out文件，加快cscope的索引速度
+"2.3.1.5 k 在生成索引文件时，不搜索/usr/include目录
+"
+"2.3.2、使用cs find 查找[3]（也可以简化写成 cs f）后面添加需要得字符串类型：
+"c:Find functions calling this function//查找调用本函数的函数
+"d:Find functions called by this function //查找本函数调用的函数
+"e:Find this egrep pattern//查找egrep模式，相当于egrep功能，但查找速度快多了
+"f:Find this file //查找并打开文件，类似vim的find功能
+"g:Find this definition//查找函数、宏、枚举等定义的位置，类似ctags的功能
+"i:Find files #including this file //查找包含本文件的文件
+"s:Find this C symbol //查找C语言符号，即查找函数名、宏、枚举值等出现的地方
+"t:Find assignments to //查找指定的字符串
+"例如：使用cscope查找do_fork函数的定义,在vim命令行下执行 :cs f g do_fork
+"
+"
+"
+"
+"
 "vim的折叠功能。。。我记得应该是6版出来的时候才推出的吧。这个对于写程序的人来说，非常有用。
 "zfap -> 按照段落折叠 (fold by paragraph)
 "zo -> 打开一个折叠 (open fold)
