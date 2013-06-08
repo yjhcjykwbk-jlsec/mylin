@@ -1,5 +1,7 @@
 #~/bin/bash
+echo "killing $1";
 threads=`ps -ef |grep "$1"|awk '{print $2}'`
-echo "will kill $threads"
-echo "begin kill"
-kill -9 $threads
+for thread in $threads
+do
+	sudo kill -9 $thread
+done

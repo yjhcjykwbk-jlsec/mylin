@@ -151,7 +151,7 @@ let Tlist_Auto_Open=1 "在启动VIM后，自动打开taglist窗口
 let Tlist_Process_File_Always=1 "taglist始终解析文件中的tag，不管taglist窗口有没有打开
 let Tlist_File_Fold_Auto_Close=1 "同时显示多个文件中的tag时，可使taglist只显示当前文件tag，其它文件的tag都被折叠起来。
 let Tlist_WinWidth = 25 " 40 cols wide
-let NERDTreeWinSize= 25
+let NERDTreeWinSize= 23
 "--------------------------------------------------------------
 " netrw 文件浏览器 :e <PATH>
 "--------------------------------------------------------------
@@ -347,7 +347,7 @@ set ruler           " 在编辑过程中，在右下角显示光标位置的状态行
 "--------------------------------------------------------------
 " 主题设置
 "--------------------------------------------------------------
-colorscheme adaryn "darkZ adaryn
+colorscheme darkZ "adaryn
 
 nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 "--------------------------------------------------------------
