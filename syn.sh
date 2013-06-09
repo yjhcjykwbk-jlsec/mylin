@@ -1,5 +1,5 @@
 myecho(){
-	echo  -e "$1"
+	echo  -i "$1"
 }
 myecho 'now synchronizing files to git...'
 cp ~/.vimrc ./
