@@ -1,7 +1,7 @@
 myecho(){
   echo -e "\033".$1."\033[0m"
 }
-myecho "now synchronizing files to git..."
+myecho 'now synchronizing files to git...'
 cp ~/.vimrc ./
 cp ~/.bash_aliases ./
 cp ~/..sh ./ -r 
