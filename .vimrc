@@ -13,6 +13,7 @@ behave mswin
 "--------------------------------------------------------------
 " 模仿MS Windows中的快捷键
 "--------------------------------------------------------------
+"{
 " CTRL-C and CTRL-Insert are Copy
 vnoremap <C-C> "+y
 "	vnoremap <C-Insert> "+y
@@ -35,9 +36,14 @@ noremap <C-S>		:update<CR>
 vnoremap <C-S>		<C-C>:update<CR>
 inoremap <C-S>		<C-O>:update<CR>
 " 模仿MS Windows中的保存命令: Ctrl+S
+" }
+
 "--------------------------------------------------------------
-"	imap <C-s> <Esc>:wa<cr>i<Right>
-"	nmap <C-s> :wa<cr>
+" 我的惯用配置（tab/space）
+"--------------------------------------------------------------
+"{
+"imap <C-s> <Esc>:wa<cr>i<Right>
+"nmap <C-s> :wa<cr>
 map <F3> :NERDTreeToggle<CR>
 map <space><left> <esc>:NERDTree<CR> "regenerate NERDTree
 map <F4> :Tlist<CR>
@@ -57,8 +63,12 @@ map <SPACE><pagedown> <ESC>:w !sudo tee %<RETURN>
 map <space><pageup> <ESC>:qa!<return>
 map <space><up> <ESC>:!gnome-terminal &<cr><return>
 " }
-"===============================================================================
-set tabstop=2       " 设置tab键的宽度
+
+"--------------------------------------------------------------
+" 界面相关，如tab/list/cursor/nu/wrap显示方式
+"--------------------------------------------------------------
+"{
+set tabstop=4      " 设置tab键的宽度
 set backspace=2     " 设置退格键可用
 set nu!             " 显示行号
 "set vbt_vb=        " vim进行编辑时，如果命令错误，会发出一个响声，该设置去掉响声
@@ -74,20 +84,24 @@ set listchars=tab:\|\ ,		" 显示Tab符，并且使用一高亮竖线代替
 set autochdir                   " 自动设置目录为正在编辑的文件所在的目录
 set hidden          " 没有保存的缓冲区可以自动被隐藏
 set scrolloff=5
+"}
+
 "--------------------------------------------------------------
 " 查找/替换相关的设置
 "--------------------------------------------------------------
+"{
 set hlsearch        " 高亮显示搜索结果
 "set incsearch       " 查询时非常方便，如要查找book单词，当输入到/b时，会自动找到
 " 第一个b开头的单词，当输入到/bo时，会自动找到第一个bo开头的
 " 单词，依次类推，进行查找时，使用此设置会快速找到答案，当你
 " 找要匹配的单词时，别忘记回车
 set gdefault        " 替换时所有的行内匹配都被替换，而不是只有第一个
-
+"}
 
 "--------------------------------------------------------------
 " 编程相关的设置 自动补全等
 "--------------------------------------------------------------
+"{
 set completeopt=longest,menu    " 关掉智能补全时的预览窗口
 "filetype plugin indent on       " 加了这句才可以用智能补全
 "	随便找一个有成员变量的对象, 比如"parmp", 进入Insert模式, 将光标放在"->"后面, 
@@ -99,10 +113,12 @@ set showmatch       " 设置匹配模式，类似当输入一个左括号时会匹配相应的那个右括号
 set shiftwidth=2    " 换行时行间交错使用4个空格
 set noautoindent      " 自动对齐
 "	set ai!             " 设置自动缩进
+"}
 
 "--------------------------------------------------------------
 " 代码折叠
 "--------------------------------------------------------------
+"{
 set foldmarker={,}
 set foldmethod=marker 
 "快速打开折叠:zo hl/l/h
@@ -118,11 +134,12 @@ set foldlevel=0
 "set foldcolumn=4
 "nmap hl <esc>:foldopen<cr>
 "nmap lh <esc>:foldclose<cr>
-
+"}
 
 "--------------------------------------------------------------
 " 窗口操作的快捷键
 "--------------------------------------------------------------
+"{
 nmap wv     <C-w>v     " 垂直分割当前窗口
 nmap wc     <C-w>c     " 关闭当前窗口
 nmap ws     <C-w>s     " 水平分割当前窗口
@@ -136,13 +153,26 @@ nmap wk		<C-w>l
 nmap wJ		<C-w>H
 nmap wK		<C-w>L
 "}
-"###############################################################################
-" The following is the Plugins' setting
-"###############################################################################
+
+"--------------------------------------------------------------
+" GVIM窗口边框和菜单隐藏
+"--------------------------------------------------------------
+"{Toggle Menu and Toolbar
+set guioptions-=m
+set guioptions-=T
+map <silent> <F2> :if &guioptions =~# 'T' <Bar>
+        \set guioptions-=T <Bar>
+        \set guioptions-=m <bar>
+    \else <Bar>
+        \set guioptions+=T <Bar>
+        \set guioptions+=m <Bar>
+    \endif<CR>
+"}
 
 "--------------------------------------------------------------
 " TagList :Tlist
 "--------------------------------------------------------------
+"{
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window=1
@@ -152,36 +182,42 @@ let Tlist_Process_File_Always=1 "taglist始终解析文件中的tag，不管taglist窗口有没
 let Tlist_File_Fold_Auto_Close=1 "同时显示多个文件中的tag时，可使taglist只显示当前文件tag，其它文件的tag都被折叠起来。
 let Tlist_WinWidth = 25 " 40 cols wide
 let NERDTreeWinSize= 23
-"--------------------------------------------------------------
-" netrw 文件浏览器 :e <PATH>
-"--------------------------------------------------------------
-"let g:netrw_winsize = 30       " 浏览器宽度
+"}
 
 "--------------------------------------------------------------
 " QuickFix
 "--------------------------------------------------------------
+"{
 nmap <F6> :cn<cr>   " 切换到下一个结果
 nmap <F7> :cp<cr>   " 切换到上一个结果
+"}
+
 "--------------------------------------------------------------
 " WinManager :WMToggle
 "--------------------------------------------------------------
+"{
 let g:winManagerWindowLayout='FileExplorer|TagList'
 "let g:winManagerWidth = 30
 "let g:defaultExplorer = 0
 "nmap <C-w><C-b> :BottomExplorerWindow<cr> " 切换到最下面一个窗格
 "nmap <C-w><C-f> :FirstExplorerWindow<cr>   " 切换到最上面一个窗格
 nmap wm :WMToggle<cr> " 是nomal模式的命令，不是Ex模式的
+"}
+
 "--------------------------------------------------------------
 " MiniBufExp
 "--------------------------------------------------------------
+"{
 "let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 "let g:miniBufExplModSelTarget = 1
+"}
 
 "--------------------------------------------------------------
 " cscope
 "--------------------------------------------------------------
+"{
 cs add /home/nfs/microwindows/src/cscope.out /home/nfs/microwindows/src
 :set cscopequickfix=s-,c-,d-,i-,t-,e-
 :set cscopetag
@@ -196,6 +232,8 @@ nmap <C-_>e :cs find e <C-R>=expand("<cword>")<cr><cr> :cw<cr>
 nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<cr><cr>
 nmap <C-_>i :cs find i <C-R>=expand("<cfile>")<cr><cr> :cw<cr>
 nmap <C-_>d :cs find d <C-R>=expand("<cword>")<cr><cr> :cw<cr>
+"nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+"}
 
 "--------------------------------------------------------------
 " Grep
@@ -212,37 +250,37 @@ nnoremap <silent> <F12> :A<CR>
 " NERD_commenter
 "--------------------------------------------------------------
 let NERD_c_alt_style = 1    " 将C语言的注释符号改为//, 默认是/**/
-"nmap <F5> ,cc
 
 "--------------------------------------------------------------
 " SuperTab :SuperTabHelp
 "--------------------------------------------------------------
+"{
 let g:SuperTabRetainCompletionType = 2
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+"}
 
 "--------------------------------------------------------------
 " CVim :help csupport
 "--------------------------------------------------------------
+"{
 let g:C_Comments = "no"         " 用C++的注释风格
 
-let g:C_BraceOnNewLine = "no"   " '{'是否独自一行
+let g:C_BraceOnNewLine = "no"   " '{'是否独自一行 '}'
 let g:C_AuthorName = "Wu Yin"
 let g:C_Project="F9"
 let g:Cpp_Template_Function = "c-function-description-wuyin"
 let g:C_TypeOfH = "c"           " *.h文件的文件类型是C还是C++
-
-"##################################################################
-"########################## End Of Vimrc ##########################
-"##################################################################
-
 " if filetype is C
 "   TODO
 " fi
+" }
 
 "--------------------------------------------------------------
 " 重新进行键盘映射，减少进入插入模式的方法
 "--------------------------------------------------------------
+"{
 nmap C <esc>:something<cr>
+nmap c <esc>:something<cr> 
 nmap I <esc>:something<cr>  "原本是行首添加,可以用0i替代
 nmap A <esc>:something<cr>  "原本是行尾添加,可以用$a替代
 nmap O <esc>:something<cr>  "本是光标上面添加一行，可以用shift+o替代
@@ -259,21 +297,24 @@ nmap U <esc>:something<cr>  “ctrl z代替u
 nmap S <esc>:echo<cr>"原本是删除行并且插入，可以用ddo或者dd<S-o>或者cc替代。现在用来向下翻页
 map <F1> :something<CR>
 imap <F1> :something<CR>
+"}
 
 "--------------------------------------------------------------
 " 注释代码
 "--------------------------------------------------------------
+"{
 "vmap <C-S-P>    dO#endif<Esc>PO#if 0<Esc>
 vmap <C-S-P>    :s/^/\/\//<Esc>
 nmap <C-S-P>    :s/^/\/\//<Esc>
 vmap <C-S-L>    :s/\/\///<Esc>
 nmap <C-S-L>    :s/\/\///<Esc>
 "vmap <C-S-o>    :s/^/"/<Esc>
+"}
 
 "--------------------------------------------------------------
 " 文件编码
 "--------------------------------------------------------------
-" 编码设置
+"{ 编码设置
 set encoding=utf-8
 set langmenu=zh_CN.UTF-8
 language message zh_CN.UTF-8
@@ -286,11 +327,20 @@ set autoread
 " 不备份文件
 set nobackup
 set nowritebackup
+"}
+
+"--------------------------------------------------------------
+" 语法/缩进相关indent/syntax
+"--------------------------------------------------------------
+"{
 syntax enable                " 打开语法高亮
 syntax on                    " 开启文件类型侦测
 "filetype indent on           " 针对不同的文件类型采用不同的缩进格式
 "filetype plugin on           " 针对不同的文件类型加载对应的插件
 "filetype plugin indent on    "智能补全
+"}
+
+"{
 " 一直启动鼠标
 set mouse=a
 " 设置mapleader
@@ -311,11 +361,14 @@ runtime macros/matchit.vim
 filetype plugin on 
 "--------------------------------------------------------------
 " mark书签配置
-
 "用nh去掉查找后的高亮
 nmap nh :noh<cr>
+"}
+
 "--------------------------------------------------------------
 "标签操作
+"--------------------------------------------------------------
+"{
 nmap tc	:tabc<return>		"关闭标签
 nmap tt	:tabnew<return>		"打开标签
 nmap tn	:tabnext<cr><return>"打开标签
@@ -325,46 +378,46 @@ nmap <C-N> :tabnew<CR>
 "用Ctrl+PageUp/PageDown切换标签页
 map <S-Left> :tabp<CR>
 map <S-Right> :tabn<CR>
-
-"--------------------------------------------------------------
-" For Haskell
-":let hs_highlight_delimiters=1            " 高亮定界符
-":let hs_highlight_boolean=1               " 把True和False识别为关键字
-":let hs_highlight_types=1                 " 把基本类型的名字识别为关键字
-":let hs_highlight_more_types=1            " 把更多常用类型识别为关键字
-":let hs_highlight_debug=1                 " 高亮调试函数的名字
-":let hs_allow_hash_operator=1             " 阻止把#高亮为错误
+"}
 
 "--------------------------------------------------------------
 " 状态栏相关的设置
 "--------------------------------------------------------------
+"{
 "set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%]
 " 状态行显示的内容 [包括系统平台、文件类型、坐标、所占比例、时间等]
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %y%r%m%*%=\ %{strftime(\"%y/%m/%d\ -\ %H:%M\")}
 set laststatus=2    " always show the status line
 set ruler           " 在编辑过程中，在右下角显示光标位置的状态行
+"}
 
 "--------------------------------------------------------------
 " 主题设置
 "--------------------------------------------------------------
-colorscheme darkZ "adaryn
+"{
+colorscheme summerfruit256 " darkZ adaryn
+set guifont=DejaVu\ Sans\ mono\ 9
+set background=dark
+"}
 
-nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 "--------------------------------------------------------------
 "命令提示
 "--------------------------------------------------------------
+"mode{
 ":map 普通，可视模式及操作符等待模式
 ":vmap 可视模式
 ":omap 操作符等待模式
 ":map! 插入和命令行模式
 ":imap 插入模式
 ":cmap 命令行模式
-"#: cscope -Rbkq<回车>
+"}
+
+"cscope{
+": cscope -Rbkq<回车>
 "2.3.1.2 R 表示把所有子目录里的文件也建立索引
 "2.3.1.3 b 表示cscope不启动自带的用户界面，而仅仅建立符号数据库
 "2.3.1.4 q 生成cscope.in.out和cscope.po.out文件，加快cscope的索引速度
 "2.3.1.5 k 在生成索引文件时，不搜索/usr/include目录
-"
 "2.3.2、使用cs find 查找[3]（也可以简化写成 cs f）后面添加需要得字符串类型：
 "c:Find functions calling this function//查找调用本函数的函数
 "d:Find functions called by this function //查找本函数调用的函数
@@ -375,11 +428,9 @@ nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 "s:Find this C symbol //查找C语言符号，即查找函数名、宏、枚举值等出现的地方
 "t:Find assignments to //查找指定的字符串
 "例如：使用cscope查找do_fork函数的定义,在vim命令行下执行 :cs f g do_fork
-"
-"
-"
-"
-"
+"}
+
+"fold{
 "vim的折叠功能。。。我记得应该是6版出来的时候才推出的吧。这个对于写程序的人来说，非常有用。
 "zfap -> 按照段落折叠 (fold by paragraph)
 "zo -> 打开一个折叠 (open fold)
@@ -398,8 +449,9 @@ nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 "zD -> 将光标下所有折叠删除 (delete all folds at the cursor line)
 "按照tab来折叠，python最好用的 (ford by indent, very useful for python)
 ":set foldmethod=indent -> 设定后用zm 跟 zr 就可以的开关关闭了 (use zm zr)
+"}
 
-
+"split{
 "vim提供了分屏功能（跟screen里面的split一样）
 ":split -> 将屏幕分成2个 (split screen)
 ":split abc.txt -> 将屏幕分成两个，第二个新的屏幕中显示abc.txt的内容 (split
@@ -424,11 +476,13 @@ nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 "开启文件的时候，利用 -o选项，就可以直接开启多个文件在分屏中 (with -o option
 "from command line, it will open files and display in split mode)
 "vim -o a.txt b.txt
+"}
 
-
+"diff{
 "今天有人说不会看diff，其实vim也可以用来看diff，这个也是属于分屏的部分，这里也写一下。
 "vimdiff a.txt b.txt 如果直接给 -d选项是一样的 vim -d a.txt b.txt
 ":diffsplit abc.txt
 "如果你现在已经开启了一个文件，想vim帮你区分你的文件跟abc.txt有什么区别，可以在vim中用diffsplit的方式打开第二个文件，这个时
 "候vim会用split的方式开启第二个文件，并且通过颜色，fold来显示两个文件的区别
 "这样vim就会用颜色帮你区分开2个文件的区别。如果文件比较大（源码）重复的部分会帮你折叠起来（折叠后面会说）
+"}
