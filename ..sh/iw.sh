@@ -1,5 +1,7 @@
 ##first make sure your block is off for wifi
 #sudo rfkill unblock wifi  #解锁wifi
+echo "sudo rfkill unblock all"  #解锁wifi
+sudo rfkill unblock all  #解锁wifi
 #sudo rfkill list all      #查看wifi锁状况
 #{
 	#0: ideapad_wlan: Wireless LAN
@@ -15,8 +17,8 @@
 
 echo "sudo ifconfig wlan0 up"
 sudo ifconfig wlan0 up
-echo "sudo iwconfig wlan0 essid UTSZ channel $1"
-sudo iwconfig wlan0 essid UTSZ channel $1
+echo "sudo iwconfig wlan0 essid UTSZ freq 2.412G channel $1"
+sudo iwconfig wlan0 essid UTSZ freq 2.412G channel $1
 #RTNETLINK answers: Operation not possible due to RF-kill
 echo "sudo dhclient wlan0"
 sudo dhclient wlan0
