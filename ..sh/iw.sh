@@ -14,6 +14,12 @@ sudo rfkill unblock all  #解锁wifi
 #echo "sudo ifconfig wlan0 down"
 #sudo ifconfig wlan0 down
 
+if [ $1 = "-f" ] 
+then
+	echo "sudo ifconfig wlan0 down"
+	sudo ifconfig wlan0 down
+fi
+
 echo "sudo ifconfig wlan0 up"
 sudo ifconfig wlan0 up
 
