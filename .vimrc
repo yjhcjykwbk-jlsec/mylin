@@ -306,8 +306,8 @@ imap <F1> :something<CR>
 "vmap <C-S-P>    dO#endif<Esc>PO#if 0<Esc>
 vmap <C-S-P>    :s/^/\/\//<Esc>
 nmap <C-S-P>    :s/^/\/\//<Esc>
-vmap <C-S-L>    :s/\/\///<Esc>
-nmap <C-S-L>    :s/\/\///<Esc>
+vmap <C-S-L>    :s/^ *\/\///<Esc>
+nmap <C-S-L>    :s/^ *\/\///<Esc>
 "vmap <C-S-o>    :s/^/"/<Esc>
 "}
 
