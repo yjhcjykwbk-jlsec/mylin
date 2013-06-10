@@ -62,6 +62,7 @@ map	<tab><pagedown> <ESC>:bp<Bar>
 map <SPACE><pagedown> <ESC>:w !sudo tee %<RETURN>
 map <space><pageup> <ESC>:qa!<return>
 map <space><up> <ESC>:!gnome-terminal &<cr><return>
+map <space><down> <ESC>:!pcmanfm . &<cr><return>
 " }
 
 "--------------------------------------------------------------
@@ -72,8 +73,8 @@ set tabstop=4      " 设置tab键的宽度
 set backspace=2     " 设置退格键可用
 set nu!             " 显示行号
 "set vbt_vb=        " vim进行编辑时，如果命令错误，会发出一个响声，该设置去掉响声
-set wrap           " 自动换行
-"set nowrap         " 不自动换行
+"set wrap           " 自动换行
+set nowrap         " 不自动换行
 set linebreak       " 整词换行
 set whichwrap=b,s,<,>,[,]       " 光标从行首和行末时可以跳到另一行去
 set list                  " 显示制表符
