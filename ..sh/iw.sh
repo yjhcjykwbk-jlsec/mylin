@@ -23,12 +23,12 @@ fi
 echo "sudo ifconfig wlan0 up"
 sudo ifconfig wlan0 up
 
-echo "sudo iwconfig wlan0 essid UTSZ channel $1 " #freq 2.412G" #channel $1"
-sudo iwconfig wlan0 essid UTSZ channel $1 #freq 2.412G #channel $1
+echo "sudo iwconfig wlan0 essid UTSZ channel $2 " #freq 2.412G" #channel $1"
+sudo iwconfig wlan0 essid UTSZ channel $2 #freq 2.412G #channel $1
 #RTNETLINK answers: Operation not possible due to RF-kill
 
 #kill dhclient threads
-threads=`ps -ef |grep "ifconfig"|awk '{print $2}'`
+threads=`ps -ef |grep "dhclient"|awk '{print $2}'`
 for thread in $threads
 do
 	sudo kill -9 $thread
