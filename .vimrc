@@ -70,6 +70,11 @@ map <space><down> <ESC>:!pcmanfm . &<cr><return>
 "--------------------------------------------------------------
 "{
 set tabstop=4      " 设置tab键的宽度
+set softtabstop=4
+" 设定 << 和 >> 命令移动时的宽度为 4
+set shiftwidth=4
+set smarttab
+
 set backspace=2     " 设置退格键可用
 set nu!             " 显示行号
 "set vbt_vb=        " vim进行编辑时，如果命令错误，会发出一个响声，该设置去掉响声
@@ -78,10 +83,11 @@ set nowrap         " 不自动换行
 set linebreak       " 整词换行
 set whichwrap=b,s,<,>,[,]       " 光标从行首和行末时可以跳到另一行去
 set list                  " 显示制表符
-set listchars=tab:\|\ ,		" 显示Tab符，并且使用一高亮竖线代替
-"set cursorline          "显示当前行
+set listchars=tab:\|\ ,	" 显示Tab符，并且使用一高亮竖线代替
+"set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
 "set listchars = tab:>-,trail:- " 将制表符显示为'>---',将行尾空格显示为'-'
 "set listchars=tab:./ ,trail:.   " 将制表符显示为'.   '
+"set cursorline          "显示当前行
 set autochdir                   " 自动设置目录为正在编辑的文件所在的目录
 set hidden          " 没有保存的缓冲区可以自动被隐藏
 set scrolloff=5
@@ -127,7 +133,7 @@ set foldmethod=marker
 "循环展开zr
 "	set foldopen=all 
 "	set foldclose=all "自动关闭折叠
-set foldlevel=0
+set foldlevel=100
 "set foldmethod=syntax
 "set foldlevel=100       " Don't autofold anything (but I can still fold manually)
 "set foldopen-=search   " don't open folds when you search into them
