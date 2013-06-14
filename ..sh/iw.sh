@@ -37,3 +37,5 @@ done
 #get a new ip
 echo "sudo dhclient wlan0"
 sudo dhclient wlan0
+
+ping 219.223.254.55
