@@ -1,5 +1,5 @@
-"	http://www.cnblogs.com/magic-chen/archive/2012/03/21/2410313.html
-"	http://blog.csdn.net/wooin/article/details/1858917
+"        http://www.cnblogs.com/magic-chen/archive/2012/03/21/2410313.html
+"        http://blog.csdn.net/wooin/article/details/1858917
 "===============================================================================
 "        Filename: vimrc
 "          Author: Wu Yin(吴垠)
@@ -16,25 +16,25 @@ behave mswin
 "{
 " CTRL-C and CTRL-Insert are Copy
 vnoremap <C-C> "+y
-"	vnoremap <C-Insert> "+y
-"	vmap <C-c> "yy
-"	vmap <C-x> "yd
-"	nmap <C-v> "yp 
-"	nmap <C-V> "+p 
-"	nmap <C-a> ggvG$
-"	noremap <C-Z> u
-"	inoremap <C-Z> <C-O>u
-"	noremap <C-Y> <C-R>
-"	inoremap <C-Y> <C-O><C-R>
-"	" CTRL-Tab is Next window
+"        vnoremap <C-Insert> "+y
+"        vmap <C-c> "yy
+"        vmap <C-x> "yd
+"        nmap <C-v> "yp 
+"        nmap <C-V> "+p 
+"        nmap <C-a> ggvG$
+"        noremap <C-Z> u
+"        inoremap <C-Z> <C-O>u
+"        noremap <C-Y> <C-R>
+"        inoremap <C-Y> <C-O><C-R>
+"        " CTRL-Tab is Next window
 noremap <C-Tab> <C-W>w
 inoremap <C-Tab> <C-O><C-W>w
 cnoremap <C-Tab> <C-C><C-W>w
 onoremap <C-Tab> <C-C><C-W>w
 " Use CTRL-S for saving, also in Insert mode
-noremap <C-S>		:update<CR>
-vnoremap <C-S>		<C-C>:update<CR>
-inoremap <C-S>		<C-O>:update<CR>
+noremap <C-S>                :update<CR>
+vnoremap <C-S>                <C-C>:update<CR>
+inoremap <C-S>                <C-O>:update<CR>
 " 模仿MS Windows中的保存命令: Ctrl+S
 " }
 
@@ -53,12 +53,12 @@ map <tab><left> <ESC>:q!<return>
 map <tab><right> <ESC>:w!<return>
 map <tab><up> <ESC>:bp<RETURN>
 map <tab><down> <ESC>:bn<RETURN>
-map	<tab><pageup> <ESC>:bn<Bar>
-			\bd # <Bar>
-			\bp<RETURN>
-map	<tab><pagedown> <ESC>:bp<Bar>
-			\bd # <Bar>
-			\bn<RETURN> 
+map        <tab><pageup> <ESC>:bn<Bar>
+                        \bd # <Bar>
+                        \bp<RETURN>
+map        <tab><pagedown> <ESC>:bp<Bar>
+                        \bd # <Bar>
+                        \bn<RETURN> 
 map <SPACE><pagedown> <ESC>:w !sudo tee %<RETURN>
 map <space><pageup> <ESC>:qa!<return>
 map <space><up> <ESC>:!gnome-terminal &<cr><return>
@@ -83,7 +83,7 @@ set nowrap         " 不自动换行
 set linebreak       " 整词换行
 set whichwrap=b,s,<,>,[,]       " 光标从行首和行末时可以跳到另一行去
 set list                  " 显示制表符
-set listchars=tab:\|\ ,	" 显示Tab符，并且使用一高亮竖线代替
+set listchars=tab:\|\ ,        " 显示Tab符，并且使用一高亮竖线代替
 "set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
 "set listchars = tab:>-,trail:- " 将制表符显示为'>---',将行尾空格显示为'-'
 "set listchars=tab:./ ,trail:.   " 将制表符显示为'.   '
@@ -111,15 +111,15 @@ set gdefault        " 替换时所有的行内匹配都被替换，而不是只有第一个
 "{
 set completeopt=longest,menu    " 关掉智能补全时的预览窗口
 "filetype plugin indent on       " 加了这句才可以用智能补全
-"	随便找一个有成员变量的对象, 比如"parmp", 进入Insert模式, 将光标放在"->"后面, 
-"	然后按下"Ctrl+X Ctrl+O", 此时会弹出一个下列菜单, 显示所有匹配的标签, 如下图:
-"	:set tags=/home/nfs/microwindows/src/tags
+"        随便找一个有成员变量的对象, 比如"parmp", 进入Insert模式, 将光标放在"->"后面, 
+"        然后按下"Ctrl+X Ctrl+O", 此时会弹出一个下列菜单, 显示所有匹配的标签, 如下图:
+"        :set tags=/home/nfs/microwindows/src/tags
 syn on              " 打开语法高亮
 set showmatch       " 设置匹配模式，类似当输入一个左括号时会匹配相应的那个右括号
-"	set smartindent     " 智能对齐方式
+"        set smartindent     " 智能对齐方式
 set shiftwidth=2    " 换行时行间交错使用4个空格
 set noautoindent      " 自动对齐
-"	set ai!             " 设置自动缩进
+"        set ai!             " 设置自动缩进
 "}
 
 "--------------------------------------------------------------
@@ -131,8 +131,8 @@ set foldmethod=marker
 "快速打开折叠:zo hl/l/h
 "循环折叠zM
 "循环展开zr
-"	set foldopen=all 
-"	set foldclose=all "自动关闭折叠
+"        set foldopen=all 
+"        set foldclose=all "自动关闭折叠
 set foldlevel=100
 "set foldmethod=syntax
 "set foldlevel=100       " Don't autofold anything (but I can still fold manually)
@@ -153,12 +153,12 @@ nmap ws     <C-w>s     " 水平分割当前窗口
 "nmap wv     <C-w>v     " 垂直分割当前窗口
 "nmap wc     <C-w>c     " 关闭当前窗口
 nmap ws     <C-w>s     " 水平分割当前窗口
-nmap wj		<C-w>h
+nmap wj                <C-w>h
 nmap w1     <C-w>h <C-w>h
 nmap w2     <C-w>l <C-w>l
-nmap wk		<C-w>l
-nmap wJ		<C-w>H
-nmap wK		<C-w>L
+nmap wk                <C-w>l
+nmap wJ                <C-w>H
+nmap wK                <C-w>L
 "}
 
 "--------------------------------------------------------------
@@ -328,7 +328,7 @@ language message zh_CN.UTF-8
 " 设置文字编码自动识别
 set fencs=ucs-bom,utf-8,cp936,gb18030,gb2312,big5,euc-jp,euc-kr,ucs,latin1
 set ffs=unix,dos,mac
-set ff=unix						    "设置文件格式为UNIX格式
+set ff=unix                                                    "设置文件格式为UNIX格式
 " 当文件在外部被修改时，自动读取
 set autoread 
 " 不备份文件
@@ -376,10 +376,10 @@ nmap nh :noh<cr>
 "标签操作
 "--------------------------------------------------------------
 "{
-nmap tc	:tabc<return>		"关闭标签
-nmap tt	:tabnew<return>		"打开标签
-nmap tn	:tabnext<cr><return>"打开标签
-nmap tp	:tabp<return>		"上个标签
+nmap tc        :tabc<return>                "关闭标签
+nmap tt        :tabnew<return>                "打开标签
+nmap tn        :tabnext<cr><return>"打开标签
+nmap tp        :tabp<return>                "上个标签
 "新建标签
 nmap <C-N> :tabnew<CR>
 "用Ctrl+PageUp/PageDown切换标签页
