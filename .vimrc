@@ -9,9 +9,13 @@
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
+" 设置mapleader
+let mapleader = ";"
+let g:mapleader = ";"
+
 set nocompatible            " 关闭 vi 兼容模式
 syntax on                   " 自动语法高亮
-colorscheme molokai         " 设定配色方案
+colorscheme aqua            " 设定配色方案
 set number                  " 显示行号
 set cursorline              " 突出显示当前行
 set list                    " 显示制表符
@@ -152,7 +156,10 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
+nmap wk <C-w>k
+nmap wj <C-w>j
+nmap wl <C-w>l
+nmap wh <C-w>h
 "一些不错的映射转换语法（如果在一个文件中混合了不同语言时有用）
 "尤其是智能补全要根据语言类型来做
 nnoremap <leader>1 :set filetype=xhtml<CR>
@@ -191,17 +198,33 @@ autocmd filetype javascript set dictionary=$VIMFILES/dict/javascript.dict
 autocmd filetype css set dictionary=$VIMFILES/dict/css.dict
 autocmd filetype php set dictionary=$VIMFILES/dict/php.dict
 " 这个是pydiction-1.2插件
-"let g:pydiction_location = vimfiles/dict/complete-dict
-"defalut g:pydiction_menu_height == 15
-"let g:pydiction_menu_height = 20
+let g:pydiction_location = '$vimfiles/ftplugin/dict/complete-dict'
+let g:pydiction_menu_height = 20
 
 "-----------------------------------------------------------------
-" plugin - bufexplorer.vim Buffers切换
+" plugin - winmanager bufexplorer.vim Buffers切换
 " \be 全屏方式查看全部打开的文件列表
 " \bv 左右方式查看   \bs 上下方式查看
 "-----------------------------------------------------------------
+" plugin - winManager setting
+"-----------------------------------------------------------------
+let g:winManagerWindowLayout = "BufExplorer|FileExplorer"
+let g:winManagerWidth = 30
+let g:defaultExplorer = 0
+"nmap <C-w><C-f> :FirstExplorerWindow<cr>   " 切换到最上面一个窗格
+"nmap <C-w><C-b> :BottomExplorerWindow<cr> " 切换到最下面一个窗格
+nmap <C-W><C-F> :FirstExplorerWindow<cr>
+nmap <C-W><C-B> :BottomExplorerWindow<cr>
+nmap <silent> <F8> :WMToggle<cr>
+let g:netrw_winsize = 30
+nmap <silent> <leader>fe :Sexplore!<cr>
+nmap wm :WMToggle<cr>    " 是nomal模式的命令，不是Ex模式的
 
-
+"--------------------------------------------------------------
+" WinManager :WMToggle
+"--------------------------------------------------------------
+"{
+"}
 "-----------------------------------------------------------------
 " plugin - taglist.vim  查看函数列表，需要ctags程序
 " F3 打开隐藏taglist窗口
@@ -259,6 +282,7 @@ imap <F3> <ESC>:NERDTreeToggle<CR>
 " [count],cc 光标以下count行逐行添加注释(7,cc)
 " [count],cu 光标以下count行逐行取消注释(7,cu)
 " [count],cm 光标以下count行尝试添加块注释(7,cm)
+" ;cc注释
 " ,cA 在行尾插入 /* */,并且进入插入模式。 这个命令方便写注释。
 " 注：count参数可选，无则默认为选中行或当前行
 "-----------------------------------------------------------------
@@ -335,9 +359,6 @@ smap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
 "-----------------------------------------------------------------
 " 一直启动鼠标
 set mouse=a
-" 设置mapleader
-let mapleader = ";"
-let g:mapleader = ";"
 " 快速重载配置文件
 map <leader>s :source ~/.vimrc<cr> 
 map <leader>e :e! ~/.vimrc<cr>
@@ -373,17 +394,6 @@ vnoremap <C-C> "+y
 "{
 nmap <F6> :cn<cr>   " 切换到下一个结果
 nmap <F7> :cp<cr>   " 切换到上一个结果
-"}
-"--------------------------------------------------------------
-" WinManager :WMToggle
-"--------------------------------------------------------------
-"{
-let g:winManagerWindowLayout='FileExplorer|TagList'
-"let g:winManagerWidth = 30
-"let g:defaultExplorer = 0
-"nmap <C-w><C-b> :BottomExplorerWindow<cr> " 切换到最下面一个窗格
-"nmap <C-w><C-f> :FirstExplorerWindow<cr>   " 切换到最上面一个窗格
-nmap wm :WMToggle<cr> " 是nomal模式的命令，不是Ex模式的
 "}
 "--------------------------------------------------------------
 " MiniBufExp
@@ -440,6 +450,7 @@ nmap R <esc>:<cr>
 nmap u <esc>:<cr>  “ctrl z代替u
 nmap U <esc>:<cr>  “ctrl z代替u
 nmap S <esc>:echo<cr>   
+map  Q <Nop>
   "原本是删除行并且插入，可以用ddo或者dd<S-o>或者cc替代。现在用来向下翻页
 nmap <F1> :<CR>
 "}
