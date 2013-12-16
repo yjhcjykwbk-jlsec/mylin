@@ -1,9 +1,13 @@
+cd ~/pic
 [ -z $1 ] && exit
 while [ true ]
 do
-  for file in `ls ~/pic`
+  for file in `ls .`
   do
-    sleep $1
-    pcmanfm  -w /home/x/pic/$file
+    if [ -f $file ]
+    then
+      sleep $1
+      pcmanfm  -w /home/x/pic/$file
+    fi
   done
 done
