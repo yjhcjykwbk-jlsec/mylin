@@ -10,8 +10,5 @@
 # bits.
 #
 # By default this script does nothing.
-mount  /dev/sda7  /media/存档 
-cpufreq-set -g powersave
-#killall nautilus
-convmvfs /host/www-gbk/blog-gbk -o srcdir=/host/www-gbk/blog-utf-8,icharset=utf8,ocharset=gbk,allow_other,uid=0,gid=11
+
 exit 0
