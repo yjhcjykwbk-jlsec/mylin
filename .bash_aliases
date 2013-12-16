@@ -33,5 +33,6 @@ alias wifi="sh /home/x/.sh/iw.sh"
 alias pdf2img="sh /home/x/.sh/pdf2img.sh"
 alias sql="mysql -uroot -p1234"
 alias myping="ping 219.223.254.55"
-alias wall="hsetroot -fill"
+/* alias wall="hsetroot -fill" */
+alias wall="sh /home/x/.sh/wall.sh &"
 alias rmswp="rm \`find . | grep '.*swp$'\` "
