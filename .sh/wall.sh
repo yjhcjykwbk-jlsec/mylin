@@ -1,5 +1,8 @@
-for file in `ls ~/pic`
+while [ true ]
 do
-sleep 8
-pcmanfm  -w /home/x/pic/$file
+  for file in `ls ~/pic`
+  do
+    sleep 8
+    pcmanfm  -w /home/x/pic/$file
+  done
 done
