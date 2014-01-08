@@ -10,4 +10,5 @@
 # bits.
 #
 # By default this script does nothing.
+mount /dev/sda7 /media/x/home2 -o loop
 exit 0
