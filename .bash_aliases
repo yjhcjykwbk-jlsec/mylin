@@ -21,6 +21,7 @@ alias pushorigin="git add -A && git push origin master"
 alias pull="git pull origin master"
 alias matlab="~/run/matlab/bin/matlab"
 
+alias autogen="sh /home/x/.sh/autogen.sh"
 alias baidu="sh /home/x/.sh/baidu.sh"
 alias chrome="chromium-browser &"
 alias chead="sh /home/x/.sh/chead.sh >"
