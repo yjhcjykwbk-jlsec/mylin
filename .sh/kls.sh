@@ -1,8 +1,6 @@
 #~/bin/bash
 echo "killing $1";
-threads=`ps -ef |grep "$1"| awk '{print $2}'`
-echo $threads
-for thread in $threads
+for thread in `ps -ef |grep "$1"| awk '{print $2}'`
 do
-	sudo kill -9 $thread
+	[ $thread != $$ ] && sudo kill -9 $thread
 done
