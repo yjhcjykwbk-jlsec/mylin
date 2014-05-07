@@ -16,10 +16,10 @@ ssh-add /home/x/.ssh/yjhcj
 sudo cpufreq-set  -g powersave -c 0
 sudo cpufreq-set -u 800MHz -c 0
 sudo cpufreq-set  -g powersave -c 1
-sudo cpufreq-set -u 811MHz -c 1
+sudo cpufreq-set -u 800MHz -c 1
 sudo cpufreq-set  -g powersave -c 2
-sudo cpufreq-set -u 822MHz -c 2
+sudo cpufreq-set -u 800MHz -c 2
 sudo cpufreq-set  -g powersave -c 3
-sudo cpufreq-set -u 833MHz -c 3
+sudo cpufreq-set -u 800MHz -c 3
 
 exit 0
