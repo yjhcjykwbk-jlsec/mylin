@@ -1,3 +1,1 @@
-eval `ssh-agent -s` 
-ssh-add -D 
-ssh-add ~/.ssh/$1
+echo "eval `ssh-agent -s` ssh-add -D ; ssh-add ~/.ssh/$1"

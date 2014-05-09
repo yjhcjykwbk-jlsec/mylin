@@ -4,7 +4,7 @@ alias ..="cd .."
 alias gitlogin="sh ~/.sh/gitlogin.sh"
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias sleep="sudo sh /etc/acpi/sleep.sh"
+alias gosleep="sudo sh /etc/acpi/sleep.sh"
 alias ag="sudo apt-get"
 alias agp="sudo apt-get purge"
 alias agi="sudo apt-get install"
@@ -45,3 +45,13 @@ alias myping="ping 219.223.254.55"
 alias wall="screen bash /home/x/.sh/wall.sh"
 alias rmswp="rm \`find . | grep '.*swp$'\` "
 alias matlab="~/run/matlab"
+
+sudo cpufreq-set  -g powersave -c 0
+sudo cpufreq-set -u 800MHz -c 0
+sudo cpufreq-set  -g powersave -c 1
+sudo cpufreq-set -u 800MHz -c 1
+sudo cpufreq-set  -g powersave -c 2
+sudo cpufreq-set -u 800MHz -c 2
+sudo cpufreq-set  -g powersave -c 3
+sudo cpufreq-set -u 800MHz -c 3
+
